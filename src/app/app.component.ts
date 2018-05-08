@@ -5,6 +5,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
+import Firebase from 'firebase';
+
+
+var config = {
+  apiKey: "AIzaSyBwMOYoi7DJ35A5RTZMAp1qy8USlS2ObTs",
+  authDomain: "xoli-5618f.firebaseapp.com",
+  databaseURL: "https://xoli-5618f.firebaseio.com",
+  projectId: "xoli-5618f",
+  storageBucket: "xoli-5618f.appspot.com",
+  messagingSenderId: "933044767122"
+};
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,5 +30,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    Firebase.initializeApp(config);  
   }
 }
