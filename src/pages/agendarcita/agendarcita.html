@@ -17,10 +17,23 @@
   <form [formGroup]="myForm" (ngSubmit)="saveData()" name="rellenar">
     <ion-list>
       <ion-item>
-        <ion-icon name="md-calendar" item-start></ion-icon>
+        <!--  <ion-icon name="md-calendar" item-start></ion-icon>
         <ion-label stacked>Paciente :</ion-label>
         <ion-input formControlName="paciente" id="paciente" type="text" placeholder="paciente"></ion-input>
+      -->
+        <ion-icon name="md-navigate" item-start> </ion-icon>
+        <ion-label stacked>Tipo evento:</ion-label>
+        <ion-select formControlName="fecha" id="tipo" > <!--*ngFor="let usuario of usuarios; let pos = index"-->
+          <ion-option *ngFor="let usuario of usuarios" value="{{usuario.nombre}}">{{usuario.nombre}} </ion-option>
+          
+
+        </ion-select>
+
+
+
       </ion-item>
+    </ion-list>
+    <ion-list>
       <ion-item>
         <ion-icon name="md-calendar" item-start></ion-icon>
         <ion-label stacked>Fecha :</ion-label>
@@ -36,7 +49,7 @@
         <ion-label stacked>Motivo :</ion-label>
         <ion-input formControlName="motivo" id="motivo" type="text" placeholder="Motivo de la cita"></ion-input>
 
-         </ion-item>
+      </ion-item>
       <br>
     </ion-list>
     <div padding>

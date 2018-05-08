@@ -19,9 +19,9 @@ import * as firebase from 'firebase';
 export class AgendarcitaPage {
 
   keySS: string;
-  key: any;
+  public key: any;
   mandaSnap: any;
-  data: any;
+  public data: any;
   referecia: any;
   myForm: FormGroup;
   usuarios = [];
@@ -110,6 +110,8 @@ export class AgendarcitaPage {
         this.usuarios.push(this.data[this.key]);
       }
      this.keySS= Object.keys(this.mandaSnap.val())[0];
+     console.log(this.usuarios);
+     
     });
   }
 
