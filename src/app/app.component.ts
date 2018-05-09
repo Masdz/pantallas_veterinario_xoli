@@ -9,12 +9,12 @@ import Firebase from 'firebase';
 
 
 var config = {
-  apiKey: "AIzaSyBwMOYoi7DJ35A5RTZMAp1qy8USlS2ObTs",
-  authDomain: "xoli-5618f.firebaseapp.com",
-  databaseURL: "https://xoli-5618f.firebaseio.com",
-  projectId: "xoli-5618f",
-  storageBucket: "xoli-5618f.appspot.com",
-  messagingSenderId: "933044767122"
+  apiKey: "AIzaSyBAiwyfqfntcYE71J5Dtx_A58x5JmHyx1Q",
+  authDomain: "xoli-base.firebaseapp.com",
+  databaseURL: "https://xoli-base.firebaseio.com",
+  projectId: "xoli-base",
+  storageBucket: "xoli-base.appspot.com",
+  messagingSenderId: "51959554942"
 };
 
 @Component({

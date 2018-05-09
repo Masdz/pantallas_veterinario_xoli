@@ -1,4 +1,4 @@
-<!--
+.<!--
   Generated template for the AgendarcitaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -25,12 +25,8 @@
         <ion-label stacked>Tipo evento:</ion-label>
         <ion-select formControlName="fecha" id="tipo" > <!--*ngFor="let usuario of usuarios; let pos = index"-->
           <ion-option *ngFor="let usuario of usuarios" value="{{usuario.nombre}}">{{usuario.nombre}} </ion-option>
-          
 
         </ion-select>
-
-
-
       </ion-item>
     </ion-list>
     <ion-list>
@@ -53,7 +49,7 @@
       <br>
     </ion-list>
     <div padding>
-      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="enviarDatosVeter()">Guardar</button>
+      <button ion-button block type="submit"  (click)="enviarDatosVeter()">Guardar</button>
       <!--  <button ion-button  >invitados</button> -->
     </div>
   </form>
