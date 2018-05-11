@@ -21,6 +21,7 @@ export class UsuariovePage {
   key: any;
   mandaSnap: any;
   data: any;
+  keys = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.getUsuarios();
   }
@@ -29,20 +30,22 @@ export class UsuariovePage {
     console.log('ionViewDidLoad UsuariovePage');
   }
 
+  
 
 
   getUsuarios() {
     this.referecia = firebase.database().ref().child("users");
-    this.referecia.on("value", (snap) => {
+    this.referecia.orderByChild("tipo").equalTo("usuario").on("value", (snap) => {
       this.data = snap.val();
       this.usuarios = [];
       this.mandaSnap = snap;
       for (this.key in this.data) {
         this.usuarios.push(this.data[this.key]);
+        this.keys.push(this.key);
       }
-    //  this.keySS = Object.keys(this.mandaSnap.val())[0];
-      console.log(this.usuarios);
-      
-  });
+     console.log(this.usuarios);
+     console.log("keys="+this.keys);
+     
+    });
   }
 }

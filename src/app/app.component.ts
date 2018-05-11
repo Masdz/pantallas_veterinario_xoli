@@ -17,6 +17,8 @@ var config = {
   messagingSenderId: "51959554942"
 };
 
+var uid="jklñ";
+
 @Component({
   templateUrl: 'app.html'
 })

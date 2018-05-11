@@ -6,12 +6,47 @@
 -->
 
 <ion-header>
-   <ion-navbar>
+  <ion-navbar>
     <ion-title>Pacientes</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  
-</ion-content>
+  <ion-list>
+    <div>
+      <ion-list-header>
+          <ion-icon name="contact" item-start></ion-icon>
+        <h1>Usuario</h1>
+        <p>descripcion</p>
+      </ion-list-header>
+      <button ion-item>
+        <ion-avatar item-start>
+          <ion-icon name="paw"></ion-icon>
+        </ion-avatar>
+        <h1>Mascota 1</h1>
+        <p>descripcion</p>
+      </button>
+      <button ion-item>
+        <ion-avatar item-start>
+          <ion-icon name="paw"></ion-icon>
+        </ion-avatar>
+        <h1>Mascota 2</h1>
+        <p>descripcion</p>
+      </button>
+      <button ion-item>
+        <ion-avatar item-start>
+          <ion-icon name="paw"></ion-icon>
+        </ion-avatar>
+        <h1>Mascota 3</h1>
+        <p>descripcion</p>
+      </button>
+    </div>
+  </ion-list>
 
+  <ion-fab right bottom style="margin: 3%">
+    <button ion-fab color="principal">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>
