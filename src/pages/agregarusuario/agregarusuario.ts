@@ -65,7 +65,6 @@ export class AgregarusuarioPage {
   }
   agregarPacientes(usuario){
     this.usuario=usuario;
-    var key=usuario.key+"";
     var referencia=firebase.database().ref().child("users/"+UID+"/pacientes/"+usuario.key);
     referencia.set(true);
     this.navCtrl.pop();

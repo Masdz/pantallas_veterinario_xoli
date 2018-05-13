@@ -1,20 +1,26 @@
 import { Mascota } from './Mascota';
+import * as firebase from 'firebase';
+
 export class Usuario{
     public data:any;
-    public key:String;
-    public mascotas:any;
+    public key:string;
+    public mascotas=[];
     public mascotasVisibles:boolean;
     constructor(data,key){
         this.key=key;
         this.data=data;
-        this.mascotas=[];
         this.mascotasVisibles=false;
-        var key;
-        for(key in data.mascotas){
-            var dataMascota=data.mascotas[key];
-            var mascota=new Mascota(dataMascota,key);      
-            this.mascotas.push(mascota);
-        }
-
+    }
+    public getmascotas(){
+        var referencia=firebase.database().ref().child("mascotas");
+        referencia.orderByChild("dueno").equalTo(this.key).on("value",(snap)=>{
+            this.mascotas=[];
+            var valor=snap.val();
+            for(var key in valor){
+                var mascota=new Mascota(valor[key],key);
+                this.mascotas.push(mascota);
+            }
+            console.log(this.mascotas);
+        });
     }
 };

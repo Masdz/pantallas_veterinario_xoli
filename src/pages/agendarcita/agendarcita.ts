@@ -2,7 +2,6 @@ import {UID} from './../../vars';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HistorialPage } from '../historial/historial';
 import * as firebase from 'firebase';
 /**
  * Generated class for the AgendarcitaPage page.
