@@ -1,4 +1,3 @@
-import { USUARIO } from './../vars';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -11,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HistorialPage } from '../pages/historial/historial';
 import { UsuariovePage } from '../pages/usuariove/usuariove';
 import { AgendarcitaPage } from '../pages/agendarcita/agendarcita';
-
+import { HistorialmascotaPage } from './../pages/historialmascota/historialmascota';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,8 @@ import { AgendarcitaPage } from '../pages/agendarcita/agendarcita';
     TabsPage,
     HistorialPage,
     UsuariovePage,
-    AgendarcitaPage
+    AgendarcitaPage,
+    HistorialmascotaPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +31,8 @@ import { AgendarcitaPage } from '../pages/agendarcita/agendarcita';
     TabsPage,
     HistorialPage,
     UsuariovePage,
-    AgendarcitaPage
+    AgendarcitaPage,
+    HistorialmascotaPage
   ],
   providers: [
     StatusBar,

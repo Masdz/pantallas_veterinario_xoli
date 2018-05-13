@@ -43,8 +43,8 @@ export class AgendarcitaPage {
   }
 
   saveData() {
-    this.navCtrl.setRoot(HistorialPage); //manda a home sin la flecha de arriba para regresar
-
+    //this.navCtrl.setRoot(HistorialPage); //manda a home sin la flecha de arriba para regresar
+    this.navCtrl.pop();//cerrar ventana de agendar citas
     //  this.myForm.reset(); //LIMPIA LOS CAMPOS DEL FORMULARIO
   }
 

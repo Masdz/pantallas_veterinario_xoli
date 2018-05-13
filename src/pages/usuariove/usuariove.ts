@@ -1,3 +1,5 @@
+import { HistorialmascotaPage } from './../historialmascota/historialmascota';
+import { Usuario } from './../../clases/Usuario';
 import { USUARIO, UID } from './../../vars';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -19,12 +21,9 @@ export class UsuariovePage {
 
   referencia: any;
   usuarios = [];
-  key: any;
   mandaSnap: any;
-  data: any;
   pacientes=[];
   mascotas=[];
-  keysPacientes=[];
   
   keys = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -40,40 +39,49 @@ export class UsuariovePage {
   
   getPacientes(){
     var uid=UID;
-    this.referencia=firebase.database().ref().child("users/"+uid+"/pacientes");
-    this.referencia.on("value",(snap)=>{
-      this.data=snap.val();
-      this.keysPacientes=[];
-      for(this.key in this.data){
-        this.keysPacientes.push(this.key);
-        var referencia2=firebase.database().ref().child("users/"+this.key)
-        referencia2.once("value",(snap)=>{
-          this.pacientes=[];
-          this.pacientes.push(snap.val());
+    var key;
+    var refEnVeterinario=firebase.database().ref().child("users/"+uid+"/pacientes");
+    refEnVeterinario.on("value",(snap)=>{
+      this.pacientes=[];
+      for(key in snap.val()){
+        var refEnPaciente=firebase.database().ref().child("users/"+key)
+        refEnPaciente.once("value",(snap2)=>{
+          var usuario=new Usuario(snap2.val(),key);
+          this.pacientes.push(usuario);
         });
       }
     });
   }
 
-  getmascotas(data){
-    var key;
-    var mascotas=[];
-    for(key in data){
-      mascotas.push(data[key]);
+  toggleMascotasVisibles(usuario){
+    if(usuario.mascotasVisibles){
+      usuario.mascotasVisibles=false;
+    }else{
+      usuario.mascotasVisibles=true;
     }
-    return mascotas
   }
 
+  test(){
+    var fecha=new Date();
+    var tiempo=fecha.toUTCString();
+    console.log("boton presionado "+tiempo);
+  }
   
+  irhistorialmascota(mascota){
+    this.navCtrl.push(HistorialmascotaPage,{"mascota":mascota});
+  }
+
   getUsuarios() {
+    var data;
+    var key;
     this.referencia = firebase.database().ref().child("users");
-    this.referencia.orderByChild("tipo").equalTo("usuario").on("value", (snap) => {
-      this.data = snap.val();
+    this.referencia.orderByChild("tipo").equalTo("U").on("value", (snap) => {
+      data = snap.val();
       this.usuarios = [];
       this.mandaSnap = snap;
-      for (this.key in this.data) {
-        this.usuarios.push(this.data[this.key]);
-        this.keys.push(this.key);
+      for (key in data) {
+        this.usuarios.push(data[key]);
+        this.keys.push(key);
       }
      console.log(this.usuarios);
      console.log("keys="+this.keys);
