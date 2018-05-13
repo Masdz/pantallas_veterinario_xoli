@@ -1,3 +1,4 @@
+import { AgregarusuarioPage } from './../pages/agregarusuario/agregarusuario';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -19,7 +20,8 @@ import { HistorialmascotaPage } from './../pages/historialmascota/historialmasco
     HistorialPage,
     UsuariovePage,
     AgendarcitaPage,
-    HistorialmascotaPage
+    HistorialmascotaPage,
+    AgregarusuarioPage
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { HistorialmascotaPage } from './../pages/historialmascota/historialmasco
     HistorialPage,
     UsuariovePage,
     AgendarcitaPage,
-    HistorialmascotaPage
+    HistorialmascotaPage,
+    AgregarusuarioPage
   ],
   providers: [
     StatusBar,

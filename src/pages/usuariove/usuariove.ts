@@ -1,3 +1,4 @@
+import { AgregarusuarioPage } from './../agregarusuario/agregarusuario';
 import { HistorialmascotaPage } from './../historialmascota/historialmascota';
 import { Usuario } from './../../clases/Usuario';
 import { USUARIO, UID } from './../../vars';
@@ -20,14 +21,9 @@ import * as firebase from 'firebase';
 export class UsuariovePage {
 
   referencia: any;
-  usuarios = [];
-  mandaSnap: any;
   pacientes=[];
-  mascotas=[];
-  
-  keys = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.getUsuarios();
     this.getPacientes();
     console.log(USUARIO);
   }
@@ -70,22 +66,7 @@ export class UsuariovePage {
   irhistorialmascota(mascota){
     this.navCtrl.push(HistorialmascotaPage,{"mascota":mascota});
   }
-
-  getUsuarios() {
-    var data;
-    var key;
-    this.referencia = firebase.database().ref().child("users");
-    this.referencia.orderByChild("tipo").equalTo("U").on("value", (snap) => {
-      data = snap.val();
-      this.usuarios = [];
-      this.mandaSnap = snap;
-      for (key in data) {
-        this.usuarios.push(data[key]);
-        this.keys.push(key);
-      }
-     console.log(this.usuarios);
-     console.log("keys="+this.keys);
-     
-    });
+  irAddUsuario(){
+    this.navCtrl.push(AgregarusuarioPage);
   }
 }
