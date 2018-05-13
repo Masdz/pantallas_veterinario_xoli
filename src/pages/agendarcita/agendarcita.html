@@ -1,4 +1,5 @@
-.<!--
+.
+<!--
   Generated template for the AgendarcitaPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -17,19 +18,13 @@
   <form [formGroup]="myForm" (ngSubmit)="saveData()" name="rellenar">
     <ion-list>
       <ion-item>
-        <!--  <ion-icon name="md-calendar" item-start></ion-icon>
-        <ion-label stacked>Paciente :</ion-label>
-        <ion-input formControlName="pacient2e" id="paciente" type="text" placeholder="paciente"></ion-input>
-      -->
         <ion-icon name="md-navigate" item-start> </ion-icon>
         <ion-label stacked>Tipo evento:</ion-label>
-        <ion-select formControlName="paciente" id="paciente" > <!--*ngFor="let usuario of usuarios; let pos = index"-->
-          <ion-option *ngFor="let i of keys" value="{{i}}">{{data[i].nombre}} </ion-option>
-
+        <ion-select formControlName="tipo" id="tipo">
+          <ion-option value="cita">Cita</ion-option>
+          <ion-option value="vacuna">Vacuna</ion-option>
         </ion-select>
       </ion-item>
-    </ion-list>
-    <ion-list>
       <ion-item>
         <ion-icon name="md-calendar" item-start></ion-icon>
         <ion-label stacked>Fecha :</ion-label>
@@ -44,13 +39,12 @@
         <ion-icon name="md-navigate" item-start> </ion-icon>
         <ion-label stacked>Motivo :</ion-label>
         <ion-input formControlName="motivo" id="motivo" type="text" placeholder="Motivo de la cita"></ion-input>
-
       </ion-item>
-      <br>
     </ion-list>
     <div padding>
-      <button ion-button block type="submit"  (click)="enviarDatosVeter()">Guardar</button>
       <!--  <button ion-button  >invitados</button> -->
+      <button ion-button block type="submit" [disabled]="!myForm.valid" (click)="enviarDatosVeter()">Guardar</button>
+
     </div>
   </form>
 

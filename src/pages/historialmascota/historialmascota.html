@@ -7,12 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Historial</ion-title>
+    <ion-title>Historial de {{mascota.data.nombre}}({{mascota.data.especie}} {{mascota.data.raza}})</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  
+  <ion-card *ngFor="let c of citas">
+    <ion-card-header>
+      {{c.data.tipo}}
+    </ion-card-header>
+    <ion-card-content>
+      Fecha: {{c.data.fecha}}<br/>
+      Hora: {{c.data.hora}}<br/>
+      Motivo: {{c.data.motivo}}
+    </ion-card-content>
+  </ion-card>
+  <ion-fab right bottom style="margin: 3%">
+    <button ion-fab color="principal" (click)="iragendarcita()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

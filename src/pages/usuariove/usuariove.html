@@ -15,8 +15,8 @@
   <ion-list>
     <div *ngFor="let p of pacientes; let i of index">
       <ion-item (click)="toggleMascotasVisibles(p)">
-        <h1>{{p.data.nombre}}</h1><br/>
-        ({{p.data.correo}})
+        Nombre: {{p.data.nombre}}<br/>
+        Correo: ({{p.data.correo}})
         <ion-icon item-end *ngIf=!p.mascotasVisibles name="arrow-dropdown"></ion-icon>
         <ion-icon item-end *ngIf=p.mascotasVisibles name="arrow-dropup"></ion-icon>
         <button ion-button item-end color="danger" (click)="eliminarPacientes(i,p)">
@@ -25,7 +25,7 @@
       </ion-item> 
       <div *ngIf=p.mascotasVisibles>
         <button ion-item *ngFor="let m of p.mascotas" (click)="irhistorialmascota(m)">
-          {{m.data.nombre}}
+          {{m.data.nombre}}({{m.data.especie}} {{m.data.raza}})
         </button>
       </div>
     </div>
