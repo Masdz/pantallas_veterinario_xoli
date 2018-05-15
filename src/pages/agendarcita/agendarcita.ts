@@ -10,6 +10,7 @@ import * as firebase from 'firebase';
  * Ionic pages and navigation.
  */
 
+
 @IonicPage()
 @Component({
   selector: 'page-agendarcita',

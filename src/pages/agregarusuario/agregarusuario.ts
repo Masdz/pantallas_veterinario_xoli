@@ -67,6 +67,8 @@ export class AgregarusuarioPage {
     this.usuario=usuario;
     var referencia=firebase.database().ref().child("users/"+UID+"/pacientes/"+usuario.key);
     referencia.set(true);
+    var referencia2=firebase.database().ref().child("users/"+usuario.key+"/veterinarios/"+UID);
+    referencia.set(true);
     this.navCtrl.pop();
   }
 }

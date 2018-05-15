@@ -1,7 +1,7 @@
+import { DetallescitaPage } from './../detallescita/detallescita';
 import { UID } from './../../vars';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AgendarcitaPage } from '../agendarcita/agendarcita';
 import * as firebase from 'firebase';
 import { Cita } from '../../clases/Cita';
 /**
@@ -19,7 +19,7 @@ export class HistorialPage {
   citas=[];
   mascota:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController) {
-    
+    this.getcitas();
   }
 
   ionViewDidLoad() {
@@ -36,6 +36,10 @@ export class HistorialPage {
       }
       console.log(this.citas);
     });
+  }
+
+  irDetallesCita(cita:Cita){
+    this.navCtrl.push(DetallescitaPage,{"tipo":"U","cita":cita});
   }
 
 }

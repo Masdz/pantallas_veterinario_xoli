@@ -1,3 +1,4 @@
+import { DetallescitaPage } from './../pages/detallescita/detallescita';
 import { AgregarusuarioPage } from './../pages/agregarusuario/agregarusuario';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,7 +22,8 @@ import { HistorialmascotaPage } from './../pages/historialmascota/historialmasco
     UsuariovePage,
     AgendarcitaPage,
     HistorialmascotaPage,
-    AgregarusuarioPage
+    AgregarusuarioPage,
+    DetallescitaPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,9 @@ import { HistorialmascotaPage } from './../pages/historialmascota/historialmasco
     UsuariovePage,
     AgendarcitaPage,
     HistorialmascotaPage,
-    AgregarusuarioPage
+    AgregarusuarioPage,
+    DetallescitaPage
+    
   ],
   providers: [
     StatusBar,

@@ -12,8 +12,15 @@
 
 </ion-header>
 
-
 <ion-content padding>
-  
-
+    <ion-card *ngFor="let c of citas" (click)="irDetallesCita(c)">
+        <ion-card-header>
+          {{c.data.tipo}}
+        </ion-card-header>
+        <ion-card-content>
+          Fecha: {{c.data.fecha}}<br/>
+          Hora: {{c.data.hora}}<br/>
+          Motivo: {{c.data.motivo}}
+        </ion-card-content>
+      </ion-card>
 </ion-content>

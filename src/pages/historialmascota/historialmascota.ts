@@ -17,6 +17,8 @@ import { Cita } from '../../clases/Cita';
 })
 export class HistorialmascotaPage {
   mascota:any;
+  pantalla:"citas";
+  vacunas=[];
   citas=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.mascota=navParams.get("mascota");
@@ -34,7 +36,11 @@ export class HistorialmascotaPage {
       var valor=snap.val();
       for(var key in valor){
         var cita=new Cita(valor[key],key);
-        this.citas.push(cita);
+        if(valor[key].tipo=='cita'){
+          this.citas.push(cita);
+        }else{
+          this.vacunas.push(cita);
+        }
       }
       console.log(this.citas);
     });
